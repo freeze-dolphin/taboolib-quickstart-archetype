@@ -6,10 +6,10 @@
 	<artifactId>taboolib-quickstart-archetype</artifactId>
 	<description>taboolib-quickstart</description>
 	<version>1.1.0</version>
-	
+
 	<name>taboolib-quickstart-archetype</name>
 	<url>https://github.com/freeze-dolphin/taboolib-quickstart-archetype/</url>
-	
+
 	<developers>
 		<developer>
 			<id>developer</id>
@@ -17,7 +17,7 @@
 			<url>https://github.com/freeze-dolphin/</url>
 		</developer>
 	</developers>
-	
+
 	<licenses>
 		<license>
 			<name>AGPL-3.0</name>
@@ -25,7 +25,11 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-	
+
+	<properties>
+		<github.global.server>github</github.global.server>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
