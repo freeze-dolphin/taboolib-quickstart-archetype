@@ -1,0 +1,52 @@
+# ==<< plugin.yml >>== #
+
+# <-| START |->
+
+# -< Main Class Definition >- #
+
+main: ${spigot.main}
+
+# -< Basic Settings >- #
+
+prefix: ${spigot.prefix}
+
+name: ${project.name}
+description: ${project.description}
+
+version: ${project.version}
+api-version: ${spigot.api-version}
+
+# -< Author Signature & License Specification & URL Definition>- #
+
+author: 
+- ${spigot.author}
+license: ${spigot.license}
+
+website: ${project.url}
+
+# -< Miscellaneous >- #
+
+# -[TabooLib Settings]-
+lib-version: ${taboolib.lib-version}
+loader-version: ${taboolib.loader-version}
+lib-download: ${taboolib.lib-download}
+
+# -< Plugin Loading >- #
+
+load: ${spigot.load}
+loadbefore: []
+
+# -< Plugin Dependencies Definition >- #
+
+depend: []
+softdepend: []
+
+# -< Commands >- #
+
+commands: 
+
+# -< Permissions >- #
+
+permissions: 
+
+# <-| END |->

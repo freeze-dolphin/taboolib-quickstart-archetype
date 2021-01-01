@@ -1,0 +1,180 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}</artifactId>
+	<version>${version}</version>
+
+	<!-- Plugin Name (<name>)
+	 | The name of this project
+	 |
+	 | This will be included in "plugin.yml"
+	 |
+	 | NOTICE that do not contain any special character like *SPACE* in it!
+	 | (or you must modify the "name" section in "plugin.yml" to make sure your plugin can be loaded properly)
+	 |
+	-->
+	<name>${name}</name>
+	
+	<!-- Plugin Description (<description>)
+	 | The description of this project
+	 |
+	 | This will be included in "plugin.yml"
+	 |
+	-->
+	<description></description>
+	
+	<!-- Plugin Website (<url>)
+	 | The official website of this project
+	 | You can post the github link here
+	 |
+	 | This will be included in "plugin.yml"
+	 |
+	-->
+	<url></url>
+	
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- Specific Spigot Native Version (<spigot.native-version>)
+		 | Fill in it with minecraft version
+		 |
+		 | Format it by deleting the dots in the version number
+		 | For example: "11200" refers to minecraft 1.12, "11600" refers to minecraft 1.16
+		 |
+		 | There is no relations between "api-version" and "native-version"
+		 |
+		 | NOTICE that NOT all the minecraft versions are available!
+		 | You can find all available versions in "http://ptms.ink:8081/#browse/browse:maven-public:ink/ptms/core"
+		 |
+		-->
+		<spigot.native-version>11200</spigot.native-version>
+		<spigot.main>${project.groupId}.${project.artifactId}.boot.PluginBoot</spigot.main>
+		<spigot.api-version>${apiVersion}</spigot.api-version>
+		<spigot.load>${load}</spigot.load>
+		<spigot.prefix>${prefix}</spigot.prefix>
+		<spigot.author>${author}</spigot.author>
+		<spigot.license>${license}</spigot.license>
+
+		<taboolib.lib-version>5.45</taboolib.lib-version>
+		<taboolib.loader-version>2.9</taboolib.loader-version>
+		<taboolib.lib-download>true</taboolib.lib-download>
+	</properties>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>nexus-aliyun</id>
+			<url>https://maven.aliyun.com/repository/public</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<repositories>
+		<repository>
+			<id>nexus-aliyun</id>
+			<url>https://maven.aliyun.com/repository/public</url>
+		</repository>
+		<repository>
+			<id>taboolib</id>
+			<url>http://ptms.ink:8081/repository/maven-public/</url>
+		</repository>
+		<repository>
+			<id>lss233-minecraft</id>
+			<name>Lss233's Minecraft Repository</name>
+			<url>http://lss233.littleservice.cn/repositories/minecraft/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>ink.ptms.core</groupId>
+			<artifactId>v${spigot.native-version}</artifactId>
+			<version>${spigot.native-version}</version>
+			<scope>provided</scope>
+			<classifier>all</classifier>
+		</dependency>
+		<dependency>
+			<groupId>io.izzel.taboolib</groupId>
+			<artifactId>TabooLib</artifactId>
+			<version>${taboolib.lib-version}</version>
+			<scope>provided</scope>
+			<classifier>all</classifier>
+		</dependency>
+		<dependency>
+			<groupId>io.izzel.taboolib</groupId>
+			<artifactId>TabooLibLoader</artifactId>
+			<version>${taboolib.loader-version}</version>
+			<scope>compile</scope>
+			<classifier>all</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.comphenix.protocol</groupId>
+			<artifactId>ProtocolLib</artifactId>
+			<version>4.5.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Disabled Dependencies
+		 | List of disabled dependencies
+		 |
+		<dependency> 
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId> 
+			<version>2.5.8</version>
+			<scope>provided</scope>
+			<type>pom</type>
+		</dependency>
+		-->
+	</dependencies>
+
+	<build>
+		<finalName>${project.name} v${project.version}</finalName>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<escapeString>\</escapeString>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.4</version>
+				<configuration>
+					<relocations>
+						<relocation>
+							<pattern>io.izzel.taboolib.loader</pattern>
+							<shadedPattern>${project.groupId}.${project.artifactId}.boot</shadedPattern>
+						</relocation>
+					</relocations>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/**</exclude>
+							</excludes>
+						</filter>
+					</filters>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
