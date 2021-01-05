@@ -10,7 +10,13 @@
 	<name>taboolib-quickstart-archetype</name>
 	<url>https://github.com/freeze-dolphin/taboolib-quickstart-archetype/</url>
 
+	<!-- REMEMBER TO MAKE SURE THAT "server" CONFIGURATIONS in "settings.xml" 
+		ARE AVAILABLE -->
+
 	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<github.global.server>github</github.global.server>
 	</properties>
 
@@ -30,24 +36,51 @@
 		</license>
 	</licenses>
 
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/local-mvn-repo</url>
+		</repository>
+	</distributionManagement>
+
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.8.1</version>
 				<configuration>
-					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/local-mvn-repo</altDeploymentRepository>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/local-mvn-repo/repository/</altDeploymentRepository>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-archetype-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<repository>${project.build.directory}/local-mvn-repo/repository/</repository>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>crawl</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.12</version>
+				<version>0.11</version>
 				<configuration>
+					<server>github</server>
+					<merge>true</merge>
+					<message>Building site for ${project.artifactId} ${project.version}</message>
 					<noJekyll>true</noJekyll>
 					<outputDirectory>${project.build.directory}/local-mvn-repo</outputDirectory>
 					<branch>refs/heads/master</branch>
-					<merge>true</merge>
 					<includes>
 						<include>**/*</include>
 					</includes>
