@@ -13,15 +13,17 @@
 		<requiredProperty key="license">
 			<defaultValue>GPL-3.0</defaultValue>
 		</requiredProperty>
+		<requiredProperty key="nativeVersion">
+			<defaultValue>11200</defaultValue>
+		</requiredProperty>
 		<requiredProperty key="apiVersion">
 			<defaultValue>1.13</defaultValue>
 		</requiredProperty>
-		<requiredProperty key="load">
-			<defaultValue>POSTWORLD</defaultValue>
-			<validationRegex>(POSTWORLD|STARTUP)</validationRegex>
+		<requiredProperty key="taboolibVersion">
+			<defaultValue>5.45</defaultValue>
 		</requiredProperty>
-		<requiredProperty key="prefix">
-			<defaultValue>${name}</defaultValue>
+		<requiredProperty key="taboolibLoaderVersion">
+			<defaultValue>2.9</defaultValue>
 		</requiredProperty>
 	</requiredProperties>
 

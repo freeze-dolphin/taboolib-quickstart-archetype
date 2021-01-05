@@ -51,16 +51,16 @@
 		 | You can find all available versions in "http://ptms.ink:8081/#browse/browse:maven-public:ink/ptms/core"
 		 |
 		-->
-		<spigot.native-version>11200</spigot.native-version>
+		<spigot.native-version>${nativeVersion}</spigot.native-version>
 		<spigot.main>${project.groupId}.${project.artifactId}.boot.PluginBoot</spigot.main>
 		<spigot.api-version>${apiVersion}</spigot.api-version>
-		<spigot.load>${load}</spigot.load>
-		<spigot.prefix>${prefix}</spigot.prefix>
+		<spigot.load></spigot.load>
+		<spigot.prefix></spigot.prefix>
 		<spigot.author>${author}</spigot.author>
 		<spigot.license>${license}</spigot.license>
 
-		<taboolib.lib-version>5.45</taboolib.lib-version>
-		<taboolib.loader-version>2.9</taboolib.loader-version>
+		<taboolib.lib-version>${taboolibVersion}</taboolib.lib-version>
+		<taboolib.loader-version>${taboolibLoaderVersion}</taboolib.loader-version>
 		<taboolib.lib-download>true</taboolib.lib-download>
 	</properties>
 

@@ -10,6 +10,10 @@
 	<name>taboolib-quickstart-archetype</name>
 	<url>https://github.com/freeze-dolphin/taboolib-quickstart-archetype/</url>
 
+	<properties>
+		<github.global.server>github</github.global.server>
+	</properties>
+
 	<developers>
 		<developer>
 			<id>developer</id>
@@ -25,10 +29,6 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-
-	<properties>
-		<github.global.server>github</github.global.server>
-	</properties>
 
 	<build>
 		<plugins>

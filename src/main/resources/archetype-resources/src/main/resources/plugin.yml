@@ -8,10 +8,10 @@ main: ${spigot.main}
 
 # -< Basic Settings >- #
 
-prefix: ${spigot.prefix}
+#prefix: ${spigot.prefix}
 
 name: ${project.name}
-description: ${project.description}
+#description: ${project.description}
 
 version: ${project.version}
 api-version: ${spigot.api-version}
@@ -22,7 +22,7 @@ author:
 - ${spigot.author}
 license: ${spigot.license}
 
-website: ${project.url}
+#website: ${project.url}
 
 # -< Miscellaneous >- #
 
@@ -33,7 +33,7 @@ lib-download: ${taboolib.lib-download}
 
 # -< Plugin Loading >- #
 
-load: ${spigot.load}
+#load: ${spigot.load}
 loadbefore: []
 
 # -< Plugin Dependencies Definition >- #
