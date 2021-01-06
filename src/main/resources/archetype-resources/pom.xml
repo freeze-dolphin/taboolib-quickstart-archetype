@@ -109,16 +109,16 @@
 			<scope>compile</scope>
 			<classifier>all</classifier>
 		</dependency>
+
+		<!-- Disabled Dependencies
+		 | List of disabled dependencies
+		 |
 		<dependency>
 			<groupId>com.comphenix.protocol</groupId>
 			<artifactId>ProtocolLib</artifactId>
 			<version>4.5.0</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<!-- Disabled Dependencies
-		 | List of disabled dependencies
-		 |
 		<dependency> 
 			<groupId>org.codehaus.groovy</groupId>
 			<artifactId>groovy-all</artifactId> 
