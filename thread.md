@@ -113,7 +113,7 @@ lib-download: ${taboolib.lib-download}
 - 常见的IDE如Eclipse、IntelliJ在创建maven项目时都会让你选择archetype, 你可以直接用"Add Archetype"功能添加远程archetype到内部Nexus服务器; 也可以先添加archetype repository再从其中选取适当的archetype. 这里提供后一种方法, 以Eclipse为例: 
 	1. 在设置(Preferences)中找到: Maven > Archetypes  
     	![1-1](https://i.loli.net/2021/01/06/jyi7Y28SkQltLZK.png)
-	2. 在右侧点击 "Add Remote Catalog" 并按照图中的方式进行配置
+	2. 在右侧点击 "Add Remote Catalog" 并按照图中的方式进行配置  
     	![1-2](https://i.loli.net/2021/01/06/VEhorUQF59lBp8Y.png)  
 		`https://raw.github.com/freeze-dolphin/maven-repository/master/repository/archetype-catalog.xml`
 - 你也可以从控制台创建一个基于此archetype的maven项目: 
@@ -121,7 +121,7 @@ lib-download: ${taboolib.lib-download}
 	2. 输入以下指令:  
 		`mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=io.freeze-dolphin.archetypes -DarchetypeArtifactId=taboolib-quickstart-archetype -DarchetypeVersion=1.1.0 -DarchetypeRepository=https://raw.github.com/freeze-dolphin/maven-repository/master/repository/`
 	3. 之后会让你配置项目的properties:  
-		![2-3](https://i.loli.net/2021/01/06/5NspB6jKWP8RCDm.png)
+		![2-3](https://i.loli.net/2021/01/06/5NspB6jKWP8RCDm.png)  
 		(properties中的"groupId"和""artifactId"以及"author"是必填项, 这些都可以在生成的pom.xml中修改)
 	4. 从ide导入生成的maven项目并开始开发  
 
@@ -130,9 +130,6 @@ lib-download: ${taboolib.lib-download}
 - 通过指令生成项目时请注意一定要用2.4版本的maven-archetype-plugin, 因为貌似只有2.x版本才能在命令行中指定archetypeRepository (当时费了我好久才发现这个= .=)  
 
 ## 开源相关
-
-以上所有内容都可在github找到  
-
 开源地址  
 maven repository: [传送门](https://github.com/freeze-dolphin/maven-repository)  
 taboolib-quickstart-archetype: [传送门](https://github.com/freeze-dolphin/taboolib-quickstart-archetype)  
