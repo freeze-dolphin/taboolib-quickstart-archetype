@@ -10,8 +10,7 @@
 	<name>taboolib-quickstart-archetype</name>
 	<url>https://github.com/freeze-dolphin/taboolib-quickstart-archetype/</url>
 
-	<!-- REMEMBER TO MAKE SURE THAT "server" CONFIGURATIONS in "settings.xml" 
-		ARE AVAILABLE -->
+	<!-- REMEMBER TO MAKE SURE THAT "server" CONFIGURATIONS in "settings.xml" ARE AVAILABLE -->
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
