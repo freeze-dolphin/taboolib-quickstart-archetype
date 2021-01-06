@@ -133,9 +133,9 @@ lib-download: ${taboolib.lib-download}
 
 以上所有内容都可在github找到  
 
-开源地址
-maven repository: [传送门](https://github.com/freeze-dolphin/maven-repository)
-taboolib-quickstart-archetype: [传送门](https://github.com/freeze-dolphin/taboolib-quickstart-archetype)
+开源地址  
+maven repository: [传送门](https://github.com/freeze-dolphin/maven-repository)  
+taboolib-quickstart-archetype: [传送门](https://github.com/freeze-dolphin/taboolib-quickstart-archetype)  
 
 欢迎发issue
 
